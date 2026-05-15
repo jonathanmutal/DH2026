@@ -1,0 +1,28 @@
+# setting for prompting
+name: instruction
+task: conditional_generation
+variables: [author, year, genre, words]
+template: |
+  Generate an original text in {{ language }}.
+  Reference metadata:
+  - Author: {{ author }}
+  - Title: {{ title }}
+  - Year: {{ year }}
+  - Genre: {{ genre }}
+ 
+  {% if conditional_tokens %}
+  Use the conditioning tokens as additional lexical or thematic constraints, but do not copy any source text verbatim.
+  Conditioning tokens: {{ conditional_tokens }}
+  {% endif %}
+   
+  Use the metadata only to infer the likely historical, literary, and linguistic context: period, register, genre conventions, and literary environment.
+  Do NOT imitate exact wording, do NOT reproduce known passages, and do NOT copy the author's distinctive voice too closely.
+  Requirements:
+  - Natural and fluent {{ language }}
+  - Consistent with the era suggested by the year
+  - Appropriate for the genre
+  - Original content
+  - Avoid repetitive artifacts
+  - Length: approximately {{ words }} words
+
+  Output only the generated text.
