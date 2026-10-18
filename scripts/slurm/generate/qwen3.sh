@@ -5,7 +5,7 @@
 #SBATCH --partition=shared-gpu
 #SBATCH --gres=gpu:1,VramPerGpu:60GB
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=64G
+#SBATCH --mem=100G
 #SBATCH --time=12:00:00
 
 set -euo pipefail
